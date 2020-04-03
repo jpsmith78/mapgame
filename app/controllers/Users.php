@@ -49,9 +49,10 @@
           $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
           if($this->user_model->register($data)){
+            flash('register_success', 'You are registered and can log in');
             redirect('users/login');
           }else {
-            die('Something went wrong')
+            die('Something went wrong');
           }
 
         }else{
