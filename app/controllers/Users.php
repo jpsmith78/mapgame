@@ -45,7 +45,15 @@
         }
 
         if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
-          die('SUCCESS');
+
+          $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+          if($this->user_model->register($data)){
+            redirect('users/login');
+          }else {
+            die('Something went wrong')
+          }
+
         }else{
           $this->view('users/register', $data);
         }
