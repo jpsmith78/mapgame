@@ -6,7 +6,10 @@
   </div>
   <ul>
     <?php foreach($data['maps'] as $map) : ?>
-      <li><?php echo $map->name ?></li>
+      <li><?php echo $map->user; ?></li>
+      <li><?php echo $map->state; ?></li>
+      <li><?php echo $_SESSION['user_name']; ?></li>
+
     <?php endforeach; ?>
   </ul>
 
