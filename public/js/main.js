@@ -1,11 +1,17 @@
 function toggleVisited(){
   var element = event.target;
+  console.log(element.id);
   if (!element.classList.contains("visited")) {
     element.classList.add("visited");
+    document.getElementById("add_input_value").value = element.id;
+    document.getElementById("add_state_input").submit();
   } else {
     element.classList.remove("visited");
+    document.getElementById("delete_input_value").value = element.id;
+    document.getElementById("delete_state_input").submit();
   }
-  console.log(element);
+
+
 }
 
 function findVisitedStates(values){
