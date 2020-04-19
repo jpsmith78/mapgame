@@ -20,14 +20,43 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
         $data = [
+          'user_id' => trim($_SESSION['user_id']),
           'state_abbr' => trim($_POST['state'])
         ];
-        var_dump($data);
+
+        $this->map_model->addState($data);
+        header("Location: " . URLROOT . "/maps/index ");
+        exit();
+
+      }else{
+
+        header("Location: " . URLROOT . "/maps/index ");
+        exit();
+
       }
     }
 
     public function delete(){
-      echo 'goodbye world';
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $data = [
+          'user_id' => trim($_SESSION['user_id']),
+          'state_abbr' => trim($_POST['state'])
+        ];
+
+        $this->map_model->deleteState($data);
+        header("Location: " . URLROOT . "/maps/index ");
+        exit();
+
+      }else{
+
+        header("Location: " . URLROOT . "/maps/index ");
+        exit();
+
+      }
     }
   }

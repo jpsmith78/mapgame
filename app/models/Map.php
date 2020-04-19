@@ -19,6 +19,39 @@
       return $results;
     }
 
+    public function addState($data){
+
+      $this->db->query("
+        INSERT INTO users_states (user_id, state_id) VALUES
+        (:user_id, (SELECT DISTINCT id FROM states WHERE abbreviation = :state_abbr))
+      ");
+
+      $this->db->bind(':user_id', $data['user_id']);
+      $this->db->bind(':state_abbr', $data['state_abbr']);
+      if($this->db->execute()){
+        var_dump('success');
+      }else{
+        var_dump('failure');
+      }
+    }
+
+    public function deleteState($data){
+
+      $this->db->query("
+        DELETE FROM users_states WHERE
+        user_id = :user_id AND
+        state_id = (SELECT DISTINCT id FROM states WHERE abbreviation = :state_abbr)
+      ");
+
+      $this->db->bind(':user_id', $data['user_id']);
+      $this->db->bind(':state_abbr', $data['state_abbr']);
+      if($this->db->execute()){
+        var_dump('success');
+      }else{
+        var_dump('failure');
+      }
+    }
+
 
 
   }

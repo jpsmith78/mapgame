@@ -1,4 +1,6 @@
-
+.state {
+  fill: lightgray;
+}
 .visited {
   fill: red !important;
 }
