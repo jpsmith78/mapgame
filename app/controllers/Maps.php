@@ -8,12 +8,30 @@
     }
 
     public function index(){
-      $maps = $this->map_model->getMaps();
+      $states = $this->map_model->getStates();
       $data = [
-        'maps' => $maps
+        'states' => $states
       ];
 
       $this->view('maps/index', $data);
+    }
+
+    public function states(){
+      $states = $this->map_model->getStates();
+      $data = [
+        'states' => $states
+      ];
+
+      $this->view('maps/states', $data);
+    }
+
+    public function countries(){
+      $states = $this->map_model->getStates();
+      $data = [
+        'states' => $states
+      ];
+
+      $this->view('maps/countries', $data);
     }
 
     public function add(){
@@ -27,12 +45,12 @@
         ];
 
         $this->map_model->addState($data);
-        header("Location: " . URLROOT . "/maps/index ");
+        header("Location: " . URLROOT . "/maps/states ");
         exit();
 
       }else{
 
-        header("Location: " . URLROOT . "/maps/index ");
+        header("Location: " . URLROOT . "/maps/states ");
         exit();
 
       }
@@ -49,12 +67,12 @@
         ];
 
         $this->map_model->deleteState($data);
-        header("Location: " . URLROOT . "/maps/index ");
+        header("Location: " . URLROOT . "/maps/states ");
         exit();
 
       }else{
 
-        header("Location: " . URLROOT . "/maps/index ");
+        header("Location: " . URLROOT . "/maps/states ");
         exit();
 
       }

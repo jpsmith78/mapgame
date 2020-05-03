@@ -6,7 +6,7 @@
       $this->db = new Database;
     }
 
-    public function getMaps(){
+    public function getStates(){
       $this->db->query('SELECT DISTINCT u.name AS user_name, s.name AS state_name, s.abbreviation as state_abbr
         FROM users_states us
         INNER JOIN states s ON s.id = us.state_id

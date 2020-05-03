@@ -1,6 +1,88 @@
+:root {
+  --green: #4FFFAD;
+  --aqua: #C2EBEA;
+  --sky: #8FD2FF;
+  --violet: #6F42FF;
+  --blue: #768BE8;
+}
+
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: var(--aqua);
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+.nav-object {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.inner-nav {
+  margin: auto;
+}
+
+.info-container {
+  text-align: left;
+  width: 100%;
+  height: 10px;
+}
+
+#info-box {
+  display: hidden;
+  text-align: center;
+  width: 100px;
+  padding: 2px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
 .state {
-  fill: lightgray;
+  fill: var(--aqua);
+}
+.countries {
+  fill: white;
+  stroke: black;
 }
 .visited {
-  fill: red !important;
+  fill: var(--blue) !important;
+}
+
+.state_names {
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  background-color: lightblue;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0, 5%;
+  margin: auto;
+}
+
+.map-count {
+  width: 100%;
+}
+.state_name {
+  width: 200px;
+  text-align: center;
+  background-color: rgba(255,255,0 , .1);
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
+
 }
